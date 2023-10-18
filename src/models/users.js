@@ -41,8 +41,6 @@ const userSchema = new Schema({
     }
    }
 });
-
-
 userSchema.plugin(uniqueValidatior)
 const Users =  model('users', userSchema)
 module.exports = Users
