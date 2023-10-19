@@ -7,7 +7,7 @@ const postSchema = new mongoose.Schema(
     description: { type: String },
     content: { type: String, required: true },
     date_post: { type: Date },
-    author: { type: Schema.ObjectId, ref: "users" },
+    author: { type: mongoose.Schema.ObjectId, ref: "users" },
     category: { type: String },
     tags: { type: Array, default: [], required: true },
     reactions: { type: Array, default: [] },

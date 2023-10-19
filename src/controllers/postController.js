@@ -25,15 +25,15 @@ module.exports = {
     put: async (req, res) => {
         const {id} = req.params;
         const infoToUpdate = req.body
-        let updatePost = await Posts.updateOne(id, infoToUpdate, {new:true})
+        let updatePost = await Posts.findByIdAndUpdate(id, infoToUpdate, {new:true})
         if (!updatePost) {
             res.status(502).send({msg: "Post not updated", err: updatePost})
         }
-        res.status(201).send({msg: "Post updated", data: user})
+        res.status(201).send({msg: "Post updated", data: updatePost})
     },
     delete: async (req, res) => {
         const {id} = req.params;
-        let deletePost = await Posts.deleteOne(id)
+        let deletePost = await Posts.deleteOne({_id:id})
         if (!deletePost) {
             res.status(502).send({msg: "Post not deleted", err: deletePost})
         }
